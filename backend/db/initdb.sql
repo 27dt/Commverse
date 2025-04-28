@@ -1,11 +1,11 @@
-CREATE TABLE user (
+CREATE TABLE users(
     user_id SERIAL PRIMARY KEY,
     email VARCHAR(255) UNIQUE NOT NULL,
     username VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE message (
+CREATE TABLE messages(
     message_id SERIAL PRIMARY KEY,
     source_id INT NOT NULL,
     dest_id INT NOT NULL,
@@ -13,10 +13,10 @@ CREATE TABLE message (
     text TEXT
 );
 
-CREATE TABLE friend (
-    user_id INT NOT NULL
+CREATE TABLE friends(
+    user_id INT NOT NULL,
     friend_id INT NOT NULL,
-    PRIMARY KEY(user_id, friend_id)
-    FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE,
-    FOREIGN KEY (friend_id) REFERENCES user(user_id) ON DELETE CASCADE
+    PRIMARY KEY(user_id, friend_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (friend_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
