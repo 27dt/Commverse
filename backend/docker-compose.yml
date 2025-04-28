@@ -1,18 +1,16 @@
 services:
-  
   db:
     build:
       context: ./db
     container_name: CommverseDB
     image: postgres
     restart: always
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
     volumes:
       - postgres:/data/postgres
     ports:
       - "5432:5432"
+    env_file:
+      - ./.env
 
 volumes:
   postgres:
