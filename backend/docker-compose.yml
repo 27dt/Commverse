@@ -13,15 +13,15 @@ services:
     env_file:
       - ./.env
 
-  backend:
-    build:
-      context: .
-      dockerfile: server/Dockerfile
-    container_name: CommverseBackend
-    depends_on:
-      - db
-    ports: 
-      - "9090:9090"
+ #backend:
+    #build:
+      #context: .
+      #dockerfile: server/Dockerfile
+    #container_name: CommverseBackend
+    #depends_on:
+      #- db
+    #ports: 
+      #- "9090:9090"
 
 volumes:
   postgres:
